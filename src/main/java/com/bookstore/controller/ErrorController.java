@@ -21,4 +21,9 @@ public class ErrorController {
     public String badRequest() {
         return "error/400";
     }
+
+    @GetMapping("/500")
+    public String internalServerHandler() {
+        return "error/500";
+    }
 }
