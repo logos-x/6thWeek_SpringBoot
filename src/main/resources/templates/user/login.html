@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="Viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
+    <script src="https://kit.fontawesome.com/7994a6a9a6.js" crossorigin="anonymous"></script>
     <th:block th:replace="~{layout::link-css}"></th:block>
 </head>
 <body>
@@ -42,7 +43,9 @@
             </form>
             <hr>
             <div>
-                <a class="btn btn-info" th:href="@{/oauth2/authorization/google}">Đăng nhập với Google</a>
+                <a class="btn btn-info" th:href="@{/oauth2/authorization/google}">
+                    <i class="fa-brands fa-google"></i>  Đăng nhập với Google
+                </a>
             </div>
         </div>
     </div>
