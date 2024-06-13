@@ -3,29 +3,28 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
-    <title>Danh sách danh mục</title>
+    <title>Chi tiết tài khoản</title>
     <th:block th:replace="layout :: link-css"></th:block>
 </head>
 <body>
 <th:block th:replace="layout :: header"></th:block>
 <div class="container mt-4">
-    <h1>Danh sách danh mục</h1>
-    <a sec:authorize="hasAnyAuthority('ADMIN')" class="btn btn-primary mb-3" th:href="@{/categories/add}">Thêm mới</a>
+    <h1>Danh sách Quyền hệ thống</h1>
+    <a sec:authorize="hasAnyAuthority('ADMIN')" class="btn btn-primary mb-3" th:href="@{/roles/add/{id}(id=${account.id})}">Thêm mới</a>
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>ID</th>
-            <th>Tên danh mục</th>
+            <th>Tên quyền</th>
             <th sec:authorize="hasAnyAuthority('ADMIN')">Chức năng</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="category : ${categories}">
-            <td th:text="${category.id}"></td>
-            <td th:text="${category.name}"></td>
+        <tr th:each="role : ${roles}">
+            <td th:text="${role.id}"></td>
+            <td th:text="${role.name}"></td>
             <td sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/categories/edit/{id}(id=${category.id})}">Sửa</a> |
-                <a th:href="@{/categories/delete/{id}(id=${category.id})}"
+                <a th:href="@{/roles/{userId}/delete/{roleId}(id=${account.id}, id=${role.id})}"
                    onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
             </td>
         </tr>
