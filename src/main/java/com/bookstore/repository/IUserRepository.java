@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-public interface IUserRepository extends JpaRepository<User, Integer> {
+public interface IUserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.username = ?1")
     User findByUserName(String username);
 
@@ -24,6 +24,9 @@ public interface IUserRepository extends JpaRepository<User, Integer> {
     @Query(value = "SELECT r.name FROM Role r INNER JOIN user_role ur ON r.id = ur.role_id WHERE ur.user_id = ?1",
             nativeQuery = true)
     String[] getRoleOfUser(Long userId);
+
+    @Query(value = "")
+    void removeRoleFromUser(Long userId, Long roleId);
 
     Optional<User> findByEmail(String email);
 }

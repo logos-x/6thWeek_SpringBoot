@@ -58,7 +58,7 @@ public class SecurityConfig {
                         .permitAll()
                         .requestMatchers("/books/edit/{id}", "/books/delete/{id}", "/books/add")
                         .hasAnyAuthority("ADMIN")
-                        .requestMatchers("/categories/add", "categories/edit/{id}", "categories/delete/{id}")
+                        .requestMatchers("/categories/add", "categories/edit/{id}", "categories/delete/{id}", "roles/**")
                         .hasAnyAuthority("ADMIN")
                         .requestMatchers("/books", "/categories")
                         .authenticated()

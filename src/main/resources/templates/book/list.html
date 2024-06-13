@@ -10,7 +10,7 @@
 <th:block th:replace="layout::header"></th:block>
 <div class="container mt-4">
     <h1 th:text="${title}">Danh sách sách</h1>
-    <a class="btn btn-primary mb-3" th:href="@{/books/add}">Thêm mới</a>
+    <a sec:authorize="hasAnyAuthority('ADMIN')" class="btn btn-primary mb-3" th:href="@{/books/add}">Thêm mới</a>
     <table class="table table-bordered">
         <thead>
         <tr>
