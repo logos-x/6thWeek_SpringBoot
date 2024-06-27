@@ -19,6 +19,10 @@ public class CustomUserDetail implements UserDetails {
         this.userRepository = userRepository;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.stream(userRepository.getRoleOfUser(user.getId()))
@@ -54,5 +58,9 @@ public class CustomUserDetail implements UserDetails {
     @Override
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
+    }
+
+    public String getName() {
+        return user.getName();
     }
 }

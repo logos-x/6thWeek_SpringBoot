@@ -29,12 +29,13 @@
                     <li sec:authorize="hasAnyAuthority('ADMIN')" class="nav-item"><a class="nav-link" href="/categories/add">Thêm danh mục</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                    <li class="nav-item d-flex align-items-center" sec:authorize="isAuthenticated()">
-                        <span class="navbar-text">
-                            Xin chào,
-                            <span sec:authentication="name" style="margin-right:20px;"></span>
-                        </span>
-                    </li>
+<!--                    <li class="nav-item d-flex align-items-center" sec:authorize="isAuthenticated()">-->
+<!--                        <span class="navbar-text">-->
+<!--                            Xin chào,-->
+<!--                            -->
+<!--                            <span sec:authentication="principal.attributes['name']" style="margin-right:20px;"></span>-->
+<!--                        </span>-->
+<!--                    </li>-->
                     <li sec:authorize="isAuthenticated()">
                         <form th:action="@{/logout}" method="post">
                             <button class="btn btn-outline-primary" type="submit">Đăng xuất</button>

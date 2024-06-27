@@ -54,4 +54,20 @@ public class UserServices {
         user.getRoles().removeIf(role -> role.getId().equals(roleId));
         userRepository.save(user);
     }
+
+    public User createUserIfNotExists(String email, String name, String username, String password) {
+        User user = userRepository.findByEmail(email);
+
+        if (user == null) {
+            user = new User();
+            user.setEmail(email);
+            user.setName(name);
+            user.setUsername(username);
+            user.setPassword(password);
+
+            save(user);
+        }
+
+        return user;
+    }
 }

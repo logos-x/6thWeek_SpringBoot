@@ -25,8 +25,8 @@ public interface IUserRepository extends JpaRepository<User, Long> {
             nativeQuery = true)
     String[] getRoleOfUser(Long userId);
 
-    @Query(value = "")
-    void removeRoleFromUser(Long userId, Long roleId);
+//    @Query(value = "")
+//    void removeRoleFromUser(Long userId, Long roleId);
 
-    Optional<User> findByEmail(String email);
+    User findByEmail(String email);
 }
